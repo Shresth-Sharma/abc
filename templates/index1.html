@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Server</title>
+    <style>
+        #main{
+            display:flex;
+            justify-content: space-around;
+        }
+        label{
+            font-size:30px;
+        }
+        .bt{
+            min-width:10vw;
+            max-width:40vw;
+            min-height:50px;
+        }
+        .inp{
+            min-width:40vw;
+            max-width:40vw;
+            min-height:40px;
+        }
+        #su2{
+            position:fixed;
+        }
+        #su1{
+            position:fixed;
+        }
+    </style>
+</head>
+<body style = 'background-color: black; color:cyan;'>
+    <center>
+        <h1>Shresth._.Sharma</h1>
+        <h1>Data Server</h1><br>
+    </center>
+    <div id="main">
+        <div id="main1">
+            <form method = 'POST' action="/signup" enctype="multipart/form-data">
+                <center>
+                    <label for="file1">Sign Up</label><br><br>
+                    <label>Username : </label><input class="inp" type="text" id="file1" name="id"><br><br>
+                    <label>Password : </label><input class="inp" type="password" id="file11" name="pass"><br><br>
+                    <input class="bt" id="su1" type="submit" value="Upload" onclick="signup()"><br>
+                </center>
+            </form>
+            {% if a == 'a' %}
+            <label>Account not available</label>
+            {% endif %}
+        </div>
+        <div id="main2">
+            <form method = 'POST' action="/signin" enctype="multipart/form-data">
+                <center>
+                    <label for="file2">Sign In</label><br><br>
+                    <label>Username : </label><input class="inp" type="text" id="file2" name="id"><br><br>
+                    <label>Password : </label><input class="inp" type="password" id="file12" name="pass"><br><br>
+                    <input class="bt" id="su2" type="submit" value="Upload" onclick="signup()"><br>
+                </center>
+                {% if a == 'w' %}
+                <label>Wrong Password</label>
+                {% endif %}
+                {% if a == 'n' %}
+                <label>Account Not Found</label>
+                {% endif %}
+            </form>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('mousemove', function(a){
+            // console.log(document.getElementById('file12').value);
+            if(document.getElementById('file2').value == '' || document.getElementById('file12').value == ''){
+
+                c=window.event.clientX
+                d=window.event.clientY
+            e = document.getElementById('su2').clientWidth
+            // console.log(e)
+            f = document.getElementById('su2').clientHeight
+            // console.log(f)
+            g = document.getElementById('su2').offsetLeft
+            // console.log(g)
+            h = document.getElementById('su2').offsetTop
+            // console.log(h)
+            if(d>h&&d<(h+f)){
+                if(c>g&&c<(g+e)){
+                    
+                    b = Math.floor((Math.random()*(innerWidth/100*40))+(innerWidth/100*50))
+                    document.getElementById('su2').style.left = b+'px';
+                }
+            }
+        }
+        })
+        document.addEventListener('mousemove', function(a){
+            // console.log(document.getElementById('file12').value);
+            if(document.getElementById('file1').value == '' || document.getElementById('file11').value == ''){
+
+                c=window.event.clientX
+                d=window.event.clientY
+            e = document.getElementById('su1').clientWidth
+            // console.log(e)
+            f = document.getElementById('su1').clientHeight
+            // console.log(f)
+            g = document.getElementById('su1').offsetLeft
+            // console.log(g)
+            h = document.getElementById('su1').offsetTop
+            // console.log(h)
+            if(d>h&&d<(h+f)){
+                if(c>g&&c<(g+e)){
+                    
+                    b = Math.floor((Math.random()*((innerWidth/100)*20))+(innerWidth/100*10))
+                    document.getElementById('su1').style.left = b+'px';
+                    console.log(b)
+                }
+            }
+        }
+        })
+    </script>
+</body>
+</html>
